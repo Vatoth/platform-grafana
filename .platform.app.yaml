@@ -1,5 +1,5 @@
 name: grafana
-type: python:3.6
+type: python:3.11
 disk: 2048
 
 relationships:

@@ -5,8 +5,8 @@
 
 # Desired version can be set by means of an enviromental variable
 if [ -z "$GRAFANA_VERSION" ]; then
-	# Default to Grafana 7.2.1
-	GRAFANA_VERSION=7.2.1;
+	# Default to Grafana 9.4.7
+	GRAFANA_VERSION=9.4.7;
 fi
 
 GRAFANA_DOWNLOAD_URI="https://dl.grafana.com/oss/release"
@@ -37,3 +37,5 @@ wget --no-cookies --no-check-certificate -q -O bin/discovery ${DISCOVERY_DOWNLOA
 echo "Downloading ${PATHFINDER_DOWNLOAD_URI}"
 wget --no-cookies --no-check-certificate -q -O bin/pathfinder ${PATHFINDER_DOWNLOAD_URI}
 chmod +x bin/pathfinder bin/discovery
+
+grafana/bin/grafana-cli --pluginsDir  grafana/plugins-bundled/ plugins install doitintl-bigquery-datasource
